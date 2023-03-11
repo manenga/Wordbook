@@ -14,6 +14,13 @@
 		E6D412AC29BCACF3000FF29E /* WordbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412AB29BCACF3000FF29E /* WordbookTests.swift */; };
 		E6D412B629BCACF3000FF29E /* WordbookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412B529BCACF3000FF29E /* WordbookUITests.swift */; };
 		E6D412B829BCACF3000FF29E /* WordbookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412B729BCACF3000FF29E /* WordbookUITestsLaunchTests.swift */; };
+		E6D412C529BCAD09000FF29E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412C429BCAD09000FF29E /* Transaction.swift */; };
+		E6D412C729BCAD5B000FF29E /* Datastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412C629BCAD5B000FF29E /* Datastore.swift */; };
+		E6D412CB29BCAD9B000FF29E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CA29BCAD9B000FF29E /* Command.swift */; };
+		E6D412CD29BCADB6000FF29E /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CC29BCADB6000FF29E /* TransactionViewModel.swift */; };
+		E6D412CF29BCADCD000FF29E /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CE29BCADCD000FF29E /* InputField.swift */; };
+		E6D412D229BCADF9000FF29E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D129BCADF9000FF29E /* ViewExtensions.swift */; };
+		E6D412D429BCAE0F000FF29E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D329BCAE0F000FF29E /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,13 @@
 		E6D412B129BCACF3000FF29E /* WordbookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D412B529BCACF3000FF29E /* WordbookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookUITests.swift; sourceTree = "<group>"; };
 		E6D412B729BCACF3000FF29E /* WordbookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E6D412C429BCAD09000FF29E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E6D412C629BCAD5B000FF29E /* Datastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datastore.swift; sourceTree = "<group>"; };
+		E6D412CA29BCAD9B000FF29E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		E6D412CC29BCADB6000FF29E /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		E6D412CE29BCADCD000FF29E /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		E6D412D129BCADF9000FF29E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		E6D412D329BCAE0F000FF29E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				E6D4129929BCACF0000FF29E /* WordbookApp.swift */,
-				E6D4129B29BCACF0000FF29E /* ContentView.swift */,
+				E6D412C929BCAD85000FF29E /* Views */,
+				E6D412C829BCAD76000FF29E /* Models */,
+				E6D412D029BCADE7000FF29E /* Extensions */,
 				E6D4129D29BCACF2000FF29E /* Assets.xcassets */,
 				E6D412A229BCACF2000FF29E /* Wordbook.entitlements */,
 				E6D4129F29BCACF2000FF29E /* Preview Content */,
@@ -127,6 +143,35 @@
 				E6D412B729BCACF3000FF29E /* WordbookUITestsLaunchTests.swift */,
 			);
 			path = WordbookUITests;
+			sourceTree = "<group>";
+		};
+		E6D412C829BCAD76000FF29E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E6D412C429BCAD09000FF29E /* Transaction.swift */,
+				E6D412CA29BCAD9B000FF29E /* Command.swift */,
+				E6D412CC29BCADB6000FF29E /* TransactionViewModel.swift */,
+				E6D412C629BCAD5B000FF29E /* Datastore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E6D412C929BCAD85000FF29E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E6D4129B29BCACF0000FF29E /* ContentView.swift */,
+				E6D412D329BCAE0F000FF29E /* ActionButton.swift */,
+				E6D412CE29BCADCD000FF29E /* InputField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E6D412D029BCADE7000FF29E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E6D412D129BCADF9000FF29E /* ViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +305,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D4129C29BCACF0000FF29E /* ContentView.swift in Sources */,
+				E6D412C729BCAD5B000FF29E /* Datastore.swift in Sources */,
+				E6D412D229BCADF9000FF29E /* ViewExtensions.swift in Sources */,
 				E6D4129A29BCACF0000FF29E /* WordbookApp.swift in Sources */,
+				E6D412CF29BCADCD000FF29E /* InputField.swift in Sources */,
+				E6D412D429BCAE0F000FF29E /* ActionButton.swift in Sources */,
+				E6D412CB29BCAD9B000FF29E /* Command.swift in Sources */,
+				E6D412C529BCAD09000FF29E /* Transaction.swift in Sources */,
+				E6D412CD29BCADB6000FF29E /* TransactionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +476,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WordBook;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -432,8 +489,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manengamungandi.Wordbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -451,7 +512,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WordBook;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -459,8 +525,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manengamungandi.Wordbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -477,8 +547,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manengamungandi.WordbookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wordbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wordbook";
 			};
 			name = Debug;
@@ -496,8 +570,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manengamungandi.WordbookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wordbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wordbook";
 			};
 			name = Release;
@@ -513,8 +591,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manengamungandi.WordbookUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Wordbook;
 			};
 			name = Debug;
@@ -530,8 +612,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manengamungandi.WordbookUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Wordbook;
 			};
 			name = Release;
