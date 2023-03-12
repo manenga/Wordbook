@@ -24,8 +24,8 @@ struct ActionButton: View {
         Button(action: action ?? { onDefaultAction() }) {
                 Text(titleText)
                     .frame(minWidth: 0)
-                    .font(.system(size: 15))
-                    .padding(.horizontal, 15)
+                    .font(.system(size: 14))
+                    .padding(.horizontal, 14)
                     .padding(.vertical, 5)
                     .foregroundColor(.white)
                     .overlay(

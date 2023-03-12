@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E6D4129A29BCACF0000FF29E /* WordbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D4129929BCACF0000FF29E /* WordbookApp.swift */; };
-		E6D4129C29BCACF0000FF29E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D4129B29BCACF0000FF29E /* ContentView.swift */; };
+		E6D4129C29BCACF0000FF29E /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D4129B29BCACF0000FF29E /* InterfaceView.swift */; };
 		E6D4129E29BCACF2000FF29E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D4129D29BCACF2000FF29E /* Assets.xcassets */; };
 		E6D412A129BCACF2000FF29E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D412A029BCACF2000FF29E /* Preview Assets.xcassets */; };
 		E6D412AC29BCACF3000FF29E /* WordbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412AB29BCACF3000FF29E /* WordbookTests.swift */; };
@@ -17,10 +17,12 @@
 		E6D412C529BCAD09000FF29E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412C429BCAD09000FF29E /* Transaction.swift */; };
 		E6D412C729BCAD5B000FF29E /* Datastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412C629BCAD5B000FF29E /* Datastore.swift */; };
 		E6D412CB29BCAD9B000FF29E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CA29BCAD9B000FF29E /* Command.swift */; };
-		E6D412CD29BCADB6000FF29E /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CC29BCADB6000FF29E /* TransactionViewModel.swift */; };
+		E6D412CD29BCADB6000FF29E /* InterfaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CC29BCADB6000FF29E /* InterfaceViewModel.swift */; };
 		E6D412CF29BCADCD000FF29E /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CE29BCADCD000FF29E /* InputField.swift */; };
 		E6D412D229BCADF9000FF29E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D129BCADF9000FF29E /* ViewExtensions.swift */; };
 		E6D412D429BCAE0F000FF29E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D329BCAE0F000FF29E /* ActionButton.swift */; };
+		E6D412D629BDE1FA000FF29E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D529BDE1FA000FF29E /* Error.swift */; };
+		E6D412D829BE1290000FF29E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D412D729BE1290000FF29E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,7 @@
 /* Begin PBXFileReference section */
 		E6D4129629BCACF0000FF29E /* Wordbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D4129929BCACF0000FF29E /* WordbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookApp.swift; sourceTree = "<group>"; };
-		E6D4129B29BCACF0000FF29E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E6D4129B29BCACF0000FF29E /* InterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceView.swift; sourceTree = "<group>"; };
 		E6D4129D29BCACF2000FF29E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D412A029BCACF2000FF29E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E6D412A229BCACF2000FF29E /* Wordbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wordbook.entitlements; sourceTree = "<group>"; };
@@ -55,10 +57,12 @@
 		E6D412C429BCAD09000FF29E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E6D412C629BCAD5B000FF29E /* Datastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datastore.swift; sourceTree = "<group>"; };
 		E6D412CA29BCAD9B000FF29E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		E6D412CC29BCADB6000FF29E /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		E6D412CC29BCADB6000FF29E /* InterfaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceViewModel.swift; sourceTree = "<group>"; };
 		E6D412CE29BCADCD000FF29E /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		E6D412D129BCADF9000FF29E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		E6D412D329BCAE0F000FF29E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		E6D412D529BDE1FA000FF29E /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		E6D412D729BE1290000FF29E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				E6D4129D29BCACF2000FF29E /* Assets.xcassets */,
 				E6D412A229BCACF2000FF29E /* Wordbook.entitlements */,
 				E6D4129F29BCACF2000FF29E /* Preview Content */,
+				E6D412D729BE1290000FF29E /* Launch Screen.storyboard */,
 			);
 			path = Wordbook;
 			sourceTree = "<group>";
@@ -150,7 +155,8 @@
 			children = (
 				E6D412C429BCAD09000FF29E /* Transaction.swift */,
 				E6D412CA29BCAD9B000FF29E /* Command.swift */,
-				E6D412CC29BCADB6000FF29E /* TransactionViewModel.swift */,
+				E6D412D529BDE1FA000FF29E /* Error.swift */,
+				E6D412CC29BCADB6000FF29E /* InterfaceViewModel.swift */,
 				E6D412C629BCAD5B000FF29E /* Datastore.swift */,
 			);
 			path = Models;
@@ -159,7 +165,7 @@
 		E6D412C929BCAD85000FF29E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E6D4129B29BCACF0000FF29E /* ContentView.swift */,
+				E6D4129B29BCACF0000FF29E /* InterfaceView.swift */,
 				E6D412D329BCAE0F000FF29E /* ActionButton.swift */,
 				E6D412CE29BCADCD000FF29E /* InputField.swift */,
 			);
@@ -278,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D412D829BE1290000FF29E /* Launch Screen.storyboard in Resources */,
 				E6D412A129BCACF2000FF29E /* Preview Assets.xcassets in Resources */,
 				E6D4129E29BCACF2000FF29E /* Assets.xcassets in Resources */,
 			);
@@ -304,7 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6D4129C29BCACF0000FF29E /* ContentView.swift in Sources */,
+				E6D4129C29BCACF0000FF29E /* InterfaceView.swift in Sources */,
 				E6D412C729BCAD5B000FF29E /* Datastore.swift in Sources */,
 				E6D412D229BCADF9000FF29E /* ViewExtensions.swift in Sources */,
 				E6D4129A29BCACF0000FF29E /* WordbookApp.swift in Sources */,
@@ -312,7 +319,8 @@
 				E6D412D429BCAE0F000FF29E /* ActionButton.swift in Sources */,
 				E6D412CB29BCAD9B000FF29E /* Command.swift in Sources */,
 				E6D412C529BCAD09000FF29E /* Transaction.swift in Sources */,
-				E6D412CD29BCADB6000FF29E /* TransactionViewModel.swift in Sources */,
+				E6D412D629BDE1FA000FF29E /* Error.swift in Sources */,
+				E6D412CD29BCADB6000FF29E /* InterfaceViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +487,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = WordBook;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -515,6 +524,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = WordBook;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

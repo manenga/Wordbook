@@ -5,13 +5,13 @@
 //  Created by Manenga on 2023/03/11.
 //
 
-struct TransactionViewModel {
+struct InterfaceViewModel {
     
     private var memoryLog = ""
     private var datastore: Datastore = Datastore()
     var commandLog: [String] = []
     
-    mutating func addCommand(type: Command, string: String = "", executed: Bool = false) {
+    mutating func addCommandIfValid(type: Command, string: String = "", shouldExecute: Bool = false) {
         var prefix = ""
         
         switch type {
@@ -39,7 +39,7 @@ struct TransactionViewModel {
         commandLog.append(fullCommand)
         memoryLog = fullCommand
         
-        guard executed else { return }
+        guard shouldExecute else { return }
         memoryLog = ""
         execute(type: type, command: fullCommand)
     }
@@ -84,7 +84,6 @@ struct TransactionViewModel {
             debugPrint("Counting \(count) keys for \(value)")
         case .begin:
             datastore.createTransaction()
-            debugPrint("Begin Transaction")
         case .commit:
             if let response = datastore.commit() {
                 commandLog.append("\(response)")
@@ -95,27 +94,6 @@ struct TransactionViewModel {
                 commandLog.append("\(response)")
             }
             debugPrint("Rollback Transaction")
-        }
-    }
-    
-    func validates(type: Command, command: String) -> Bool {
-        switch type {
-        case .none:
-            return false
-        case .set:
-            return false
-        case .get:
-            return false
-        case .delete:
-            return false
-        case .count:
-            return false
-        case .begin:
-            return false
-        case .commit:
-            return false
-        case .rollback:
-            return false
         }
     }
 }

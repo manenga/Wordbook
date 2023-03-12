@@ -13,6 +13,9 @@ struct Datastore {
     mutating func reset() {
         top = nil
         size = 0
+        debugPrint("Reset Stack: \(size)")
+        debugPrint("GloblalStore:")
+        debugPrint("\(GlobalStore)")
     }
     
     // Create a new Transaction, and make it the current active transaction
@@ -23,6 +26,7 @@ struct Datastore {
         }
         top = transaction
         size += 1
+        debugPrint("Create Transaction: \(size)")
     }
 
     // Create a new Transaction, and make it the current active transaction
@@ -30,6 +34,7 @@ struct Datastore {
         if top?.hasNext() ?? false {
             top = top?.getNext()
             size -= 1
+            debugPrint("Delete Transaction. Remaining: \(size)")
         }
     }
     
@@ -45,6 +50,7 @@ struct Datastore {
                 }
             }
             reset()
+//            deleteTransaction()
             return nil
         } else {
             debugPrint("Nothing to commit")
@@ -52,13 +58,14 @@ struct Datastore {
         }
     }
     
-    // Reset all keys in the datastore and clear the transaction stack
+    // Remove the top transaction from the stack
     mutating func rollback() -> String? {
         if top == nil {
             debugPrint("No Active Transaction")
             return "no transaction"
         } else {
             deleteTransaction()
+//            reset()
         }
         return nil
     }

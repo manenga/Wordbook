@@ -14,6 +14,7 @@ struct InputField: View {
     var body: some View {
         VStack {
             TextField("", text: $text)
+                .foregroundColor(.black)
                 .autocapitalization(.none)
                 .placeholder(when: text.isEmpty) {
                     Text(placeholder).foregroundColor(.indigo)
