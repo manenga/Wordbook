@@ -16,6 +16,10 @@ COMMIT            // complete the current transaction
 ROLLBACK          // revert to state prior to BEGIN call
 ```
 
+# Demo
+<img src="https://github.com/manenga/Wordbook/blob/main/Wordbook/WordBook%20demo.gif?raw=true" width="50%" /> 
+
+
 ## How can I support the developer?
 - Star our GitHub repo ⭐
 - Create pull requests, submit bugs, suggest new features or documentation updates 🔧
@@ -34,6 +38,3 @@ ROLLBACK          // revert to state prior to BEGIN call
 
 ## From Developers
 Made with ♥ by [Manenga](https://linkedin.com/in/mungandi/). [Support me](https://paypal.me/Mungandi).
-
-## TO-DO's:
-- [ ] Demo gif
