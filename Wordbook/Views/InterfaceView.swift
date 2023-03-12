@@ -198,6 +198,7 @@ struct InterfaceView: View {
         case .begin:
             textInput = ""
             selectedItem = "BEGIN"
+            evaluateCommandSafely(shouldExecute: true)
         case .commit:
             textInput = ""
             selectedItem = "COMMIT"
@@ -229,9 +230,7 @@ struct InterfaceView: View {
     
     private func evaluateCommandSafely(shouldExecute : Bool) {
         do {
-            if command == .begin {
-                try viewModel.addCommandIfValid(type: .begin, shouldExecute: true)
-            } else if shouldExecute {
+            if shouldExecute {
                 try viewModel.addCommandIfValid(
                     type: command,
                     string: textInput,

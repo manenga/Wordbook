@@ -46,14 +46,8 @@ struct Datastore {
         if let activeTransaction = top {
             for (key, value) in activeTransaction.getStore() {
                 GlobalStore[key] = value
-                if var nextTransaction = activeTransaction.getNext() {
-                    // update the parent transaction
-                    nextTransaction.setValueForKey(value: value, key: key)
-                    top?.setNext(nextTransaction)
-                }
             }
             reset()
-//            deleteTransaction()
             return nil
         } else {
             debugPrint("Nothing to commit")
@@ -68,7 +62,6 @@ struct Datastore {
             return "no transaction"
         } else {
             deleteTransaction()
-//            reset()
         }
         return nil
     }
