@@ -21,7 +21,7 @@
 		E6D412CF29BCADCD000FF29E /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412CE29BCADCD000FF29E /* InputField.swift */; };
 		E6D412D229BCADF9000FF29E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D129BCADF9000FF29E /* ViewExtensions.swift */; };
 		E6D412D429BCAE0F000FF29E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D329BCAE0F000FF29E /* ActionButton.swift */; };
-		E6D412D629BDE1FA000FF29E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D529BDE1FA000FF29E /* Error.swift */; };
+		E6D412D629BDE1FA000FF29E /* ValidationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D412D529BDE1FA000FF29E /* ValidationErrors.swift */; };
 		E6D412D829BE1290000FF29E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D412D729BE1290000FF29E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		E6D412CE29BCADCD000FF29E /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		E6D412D129BCADF9000FF29E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		E6D412D329BCAE0F000FF29E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		E6D412D529BDE1FA000FF29E /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		E6D412D529BDE1FA000FF29E /* ValidationErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrors.swift; sourceTree = "<group>"; };
 		E6D412D729BE1290000FF29E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,7 +155,7 @@
 			children = (
 				E6D412C429BCAD09000FF29E /* Transaction.swift */,
 				E6D412CA29BCAD9B000FF29E /* Command.swift */,
-				E6D412D529BDE1FA000FF29E /* Error.swift */,
+				E6D412D529BDE1FA000FF29E /* ValidationErrors.swift */,
 				E6D412CC29BCADB6000FF29E /* InterfaceViewModel.swift */,
 				E6D412C629BCAD5B000FF29E /* Datastore.swift */,
 			);
@@ -319,7 +319,7 @@
 				E6D412D429BCAE0F000FF29E /* ActionButton.swift in Sources */,
 				E6D412CB29BCAD9B000FF29E /* Command.swift in Sources */,
 				E6D412C529BCAD09000FF29E /* Transaction.swift in Sources */,
-				E6D412D629BDE1FA000FF29E /* Error.swift in Sources */,
+				E6D412D629BDE1FA000FF29E /* ValidationErrors.swift in Sources */,
 				E6D412CD29BCADB6000FF29E /* InterfaceViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

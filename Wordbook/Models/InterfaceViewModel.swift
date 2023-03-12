@@ -11,7 +11,7 @@ struct InterfaceViewModel {
     private var datastore: Datastore = Datastore()
     var commandLog: [String] = []
     
-    mutating func addCommandIfValid(type: Command, string: String = "", shouldExecute: Bool = false) {
+    mutating func addCommandIfValid(type: Command, string: String = "", shouldExecute: Bool = false) throws {
         var prefix = ""
         
         switch type {
@@ -40,8 +40,13 @@ struct InterfaceViewModel {
         memoryLog = fullCommand
         
         guard shouldExecute else { return }
-        memoryLog = ""
-        execute(type: type, command: fullCommand)
+        
+        if isInputValid(text: string, for: type) {
+            memoryLog = ""
+            execute(type: type, command: fullCommand)
+        } else {
+            throw ValidationErrors.badCommand
+        }
     }
     
     mutating func clearMemoryLogIfExists() {
@@ -62,38 +67,39 @@ struct InterfaceViewModel {
             let key = String(splitArray[2])
             let value = String(splitArray[3])
             datastore.set(key: key, value: value)
-            debugPrint("Setting \(value) for \(key)")
         case .get:
             let key = String(splitArray[2])
             let valueForKey = datastore.get(key: key)
             commandLog.append(valueForKey)
-            if valueForKey == "key not set" {
-                debugPrint("\(valueForKey) for \(key)")
-            } else {
-                debugPrint("Found \(valueForKey) for \(key)")
-            }
         case .delete:
             let splitArray = command.split(separator: " ")
             let key = String(splitArray[2])
             datastore.delete(key: key)
-            debugPrint("Deleting \(key)")
         case .count:
             let value = String(splitArray[2])
             let count = datastore.count(value: value)
             commandLog.append("\(count)")
-            debugPrint("Counting \(count) keys for \(value)")
         case .begin:
             datastore.createTransaction()
         case .commit:
             if let response = datastore.commit() {
                 commandLog.append("\(response)")
             }
-            debugPrint("Commit")
         case .rollback:
             if let response = datastore.rollback() {
                 commandLog.append("\(response)")
             }
-            debugPrint("Rollback Transaction")
+        }
+    }
+    
+    private func isInputValid(text: String, for type: Command) -> Bool {
+        switch type {
+        case .set:
+            return text.trimmingCharacters(in: .whitespaces).split(separator: " ").count == 2
+        case .get, .delete, .count:
+            return text.trimmingCharacters(in: .whitespaces).split(separator: " ").count == 1
+        default:
+            return true
         }
     }
 }

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct InterfaceView: View {
-
+    
     @State var selectedItem: String? = nil
     @State private var viewModel = InterfaceViewModel()
     @State private var textInput = ""
     @State private var placeholder = ""
     @State private var command: Command = .none
+    @State private var showingErrorAlert = false
     @State private var showingCommitAlert = false
     @State private var showingDeleteAlert = false
     @State private var showingRollbackAlert = false
@@ -22,53 +23,30 @@ struct InterfaceView: View {
     var body: some View {
         VStack(alignment: .leading) {
             commandStack.padding(.horizontal, 6)
-            displayLog().padding(.horizontal, 6)
-
-            if command == .set || command == .get
-            || command == .delete || command == .count {
-                inputField.focused($inputFieldIsFocused)
-            }
-            Spacer()
-        }
-        .padding(.bottom, 5)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
-    }
-
-    private var inputField: some View {
-        HStack {
-            InputField(text: $textInput, placeholder: placeholder)
-            Button(
-                "Execute",
-                action: {
-                    onExecute()
-                }).foregroundColor(Color.black)
+            displayLog()
+                .padding(.horizontal, 6)
                 .alert("Are you sure you want to commit this transaction?",
                        isPresented: $showingCommitAlert) {
                     Button("Dismiss", role: .cancel) {
-                        command = .none
-                        selectedItem = ""
+                        clear()
                         showingCommitAlert = false
                     }
                     Button("Commit", role: .none) {
-                        viewModel.addCommandIfValid(type: .commit, shouldExecute: true)
+                        evaluateCommandSafely(shouldExecute: true)
                         showingCommitAlert = false
                     }
                 }
                .alert("Are you sure you want to delete this key?",
                       isPresented: $showingDeleteAlert) {
                    Button("Dismiss", role: .cancel) {
-                       command = .none
-                       selectedItem = ""
+                       clear()
                        showingDeleteAlert = false
+                       viewModel.clearMemoryLogIfExists()
                    }
                    Button("Delete", role: .none) {
-                       viewModel.addCommandIfValid(
-                        type: .delete,
-                           string: textInput,
-                           shouldExecute: true)
-                        showingDeleteAlert = false
-                   }
+                       evaluateCommandSafely(shouldExecute: true)
+                       showingDeleteAlert = false
+                   }.foregroundColor(.red)
                }
               .alert("Are you sure you want to rollback this transaction?",
                      isPresented: $showingRollbackAlert) {
@@ -78,10 +56,39 @@ struct InterfaceView: View {
                       showingRollbackAlert = false
                   }
                   Button("Rollback", role: .none) {
-                      viewModel.addCommandIfValid(type: .rollback, shouldExecute: true)
+                      evaluateCommandSafely(shouldExecute: true)
                       showingRollbackAlert = false
-                  }
+                  }.foregroundColor(.green)
               }
+             .alert("Your input is badly formatted. Please follow the correct format",
+                    isPresented: $showingErrorAlert) {
+                 Button("Dismiss", role: .cancel) {
+                     viewModel.clearMemoryLogIfExists()
+                     showingErrorAlert = false
+                     clear()
+                 }.foregroundColor(.red)
+             }
+            
+            if command == .set || command == .get
+                || command == .delete || command == .count {
+                inputField
+                    .focused($inputFieldIsFocused)
+            }
+            Spacer()
+        }
+        .padding(.bottom, 5)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+    }
+    
+    private var inputField: some View {
+        HStack {
+            InputField(text: $textInput, placeholder: placeholder)
+            Button(
+                "Execute",
+                action: {
+                    onExecute()
+                }).foregroundColor(Color.black)
         }.padding(.horizontal, 5)
     }
     
@@ -172,26 +179,25 @@ struct InterfaceView: View {
             selectedItem = "SET"
             inputFieldIsFocused = true
             placeholder = "<key> <value>"
-            viewModel.addCommandIfValid(type: .set)
+            evaluateCommandSafely(shouldExecute: false)
         case .get:
             selectedItem = "GET"
             placeholder = "<key>"
             inputFieldIsFocused = true
-            viewModel.addCommandIfValid(type: .get)
+            evaluateCommandSafely(shouldExecute: false)
         case .delete:
             placeholder = "<key>"
             selectedItem = "DELETE"
             inputFieldIsFocused = true
-            viewModel.addCommandIfValid(type: .delete)
+            evaluateCommandSafely(shouldExecute: false)
         case .count:
             selectedItem = "COUNT"
             placeholder = "<value>"
             inputFieldIsFocused = true
-            viewModel.addCommandIfValid(type: .count)
+            evaluateCommandSafely(shouldExecute: false)
         case .begin:
             textInput = ""
             selectedItem = "BEGIN"
-            viewModel.addCommandIfValid(type: .begin, shouldExecute: true)
         case .commit:
             textInput = ""
             selectedItem = "COMMIT"
@@ -202,8 +208,6 @@ struct InterfaceView: View {
             presentConfirmationAlert()
         }
     }
-    
-    // TODO: The interface should be easily tested and extended. Interface should show alerts to confirm COMMIT, ROLLBACK or DELETE.
     
     private func presentConfirmationAlert() {
         if command == .commit {
@@ -219,14 +223,32 @@ struct InterfaceView: View {
         if command == .delete {
             presentConfirmationAlert()
         } else {
-            viewModel.addCommandIfValid(
-                type: command,
-                string: textInput,
-                shouldExecute: true)
+            evaluateCommandSafely(shouldExecute: true)
         }
-        textInput = ""
+    }
+    
+    private func evaluateCommandSafely(shouldExecute : Bool) {
+        do {
+            if command == .begin {
+                try viewModel.addCommandIfValid(type: .begin, shouldExecute: true)
+            } else if shouldExecute {
+                try viewModel.addCommandIfValid(
+                    type: command,
+                    string: textInput,
+                    shouldExecute: true)
+                clear()
+            } else {
+                try viewModel.addCommandIfValid(type: command)
+            }
+        } catch {
+            showingErrorAlert = true
+        }
+    }
+    
+    private func clear() {
         command = .none
         selectedItem = ""
+        textInput = ""
     }
 }
 

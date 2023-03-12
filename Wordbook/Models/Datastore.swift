@@ -13,7 +13,7 @@ struct Datastore {
     mutating func reset() {
         top = nil
         size = 0
-        debugPrint("Reset Stack: \(size)")
+        debugPrint("DB: Reset Stack: \(size)")
         debugPrint("GloblalStore:")
         debugPrint("\(GlobalStore)")
     }
@@ -26,7 +26,7 @@ struct Datastore {
         }
         top = transaction
         size += 1
-        debugPrint("Create Transaction: \(size)")
+        debugPrint("DB: Create Transaction: \(size)")
     }
 
     // Create a new Transaction, and make it the current active transaction
@@ -34,8 +34,11 @@ struct Datastore {
         if top?.hasNext() ?? false {
             top = top?.getNext()
             size -= 1
-            debugPrint("Delete Transaction. Remaining: \(size)")
+        } else {
+            top = nil
+            size = 0
         }
+        debugPrint("DB: Delete Transaction. Remaining: \(size)")
     }
     
     // Copy all keys from the active transaction to the GlobalStore and reset when done
@@ -61,7 +64,7 @@ struct Datastore {
     // Remove the top transaction from the stack
     mutating func rollback() -> String? {
         if top == nil {
-            debugPrint("No Active Transaction")
+            debugPrint("DB: No Active Transaction")
             return "no transaction"
         } else {
             deleteTransaction()
@@ -74,19 +77,25 @@ struct Datastore {
     func get(key: String) -> String {
         if let activeTransaction = top {
             if let value = activeTransaction.getValueForKey(key) {
+                debugPrint("DB: Found \(value) for \(key) in Top Stack")
                 return value
             } else if let value = activeTransaction.searchTree(for: key) {
+                debugPrint("DB: Found \(value) for \(key) in Tree")
                 return value
             } else if let value = GlobalStore[key] {
+                debugPrint("DB: Found \(value) for \(key) in Global Store")
                 return value
             } else {
+                debugPrint("DB: key not set for \(key) after checking everywhere")
                 return "key not set"
             }
         } else {
             if let value = GlobalStore[key] {
+                debugPrint("DB: Found \(value) for \(key) in Global Store")
                 return value
             } else {
-               return "key not set"
+                debugPrint("DB: key not set for \(key) in Global Store")
+                return "key not set"
             }
         }
     }
@@ -95,8 +104,10 @@ struct Datastore {
     mutating func set(key: String, value: String) {
         if top == nil {
             GlobalStore[key] = value
+            debugPrint("DB: Setting \(value) for \(key) in Global Store")
         } else {
             top?.setValueForKey(value: value, key: key)
+            debugPrint("DB: Setting \(value) for \(key) in Top Stack(\(size))")
         }
     }
     
@@ -111,6 +122,7 @@ struct Datastore {
         if let activeTransaction = top {
             count = activeTransaction.countAllOccurrences(of: value, total: count)
         }
+        debugPrint("Counting \(count) keys for \(value)")
         return count
     }
 
@@ -119,13 +131,17 @@ struct Datastore {
         if let activeTransaction = top {
             if activeTransaction.getValueForKey(key) != nil {
                 top?.setValueForKey(value: nil, key: key)
+                debugPrint("DB: Deleting \(key) in Top Stack(\(size))")
             } else if activeTransaction.searchTree(for: key) != nil {
                 top?.deleteIfExistsInTree(key)
+                debugPrint("DB: Deleting \(key) in Tree")
             } else {
                 GlobalStore[key] = nil
+                debugPrint("DB: Deleting \(key) in Global Store")
             }
         } else {
             GlobalStore[key] = nil
+            debugPrint("DB: Deleting \(key) in Global Store")
         }
     }
 }
